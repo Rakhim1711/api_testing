@@ -24,6 +24,11 @@ def test_create_customer_only_email_password():
     cust_api_info = custom_object.create_customer(email=email, password=password)
 
 
+    assert cust_api_info['email'] == email
+    assert cust_api_info['meta_data'] == []
+    import pdb; pdb.set_trace()
+
+
 
 
     # verify status code of the call
