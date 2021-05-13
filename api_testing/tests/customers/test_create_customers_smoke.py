@@ -1,5 +1,7 @@
 import pytest
 import logging as logger
+from api_testing.src.utilities.genericUtilities import generate_random_email_and_password
+from api_testing.src.helpers.customers_helper import CustomerHelper
 
 
 
@@ -7,14 +9,22 @@ import logging as logger
 def test_create_customer_only_email_password():
     logger.info('TEST: Create new customer with email and password only.')
 
+    rand_info = generate_random_email_and_password()
 
-    email = ''
-    password = ''
-
+    email = rand_info['email']
+    password = rand_info['password']
+    import pdb; pdb.set_trace()
 
     # create payload
 
+    payload = {'email':email, 'password':password}
+
     # make the call
+    custom_object = CustomerHelper()
+    cust_api_info = custom_object.create_customer(email=email, password=password)
+
+
+
 
     # verify status code of the call
 
