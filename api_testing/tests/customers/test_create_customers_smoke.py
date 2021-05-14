@@ -2,6 +2,7 @@ import pytest
 import logging as logger
 from api_testing.src.utilities.genericUtilities import generate_random_email_and_password
 from api_testing.src.helpers.customers_helper import CustomerHelper
+from api_testing.src.dao.customers_dao import CustomerDAO
 
 
 
@@ -26,6 +27,11 @@ def test_create_customer_only_email_password():
 
     assert cust_api_info['email'] == email
     assert cust_api_info['meta_data'] == []
+
+
+
+    cust_dao = CustomerDAO()
+    cust_info = cust_dao.get_customer_by_email(email)
     import pdb; pdb.set_trace()
 
 
