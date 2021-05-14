@@ -20,6 +20,8 @@ class RequestsUtility(object):
         self.auth = OAuth1(wc_creds['wc_key'], wc_creds['wc_secret'])
 
 
+
+
     def post(self, endpoint, payload=None, headers=None, expected_status_code = 200):
 
         if not headers:
